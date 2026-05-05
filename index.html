@@ -3,388 +3,329 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payments Daily Brief — May 5, 2026</title>
+    <title>Payments Intelligence Brief — 2026-05-05</title>
     <style>
         :root {
             color-scheme: light;
-            --color-bg: #f7f7f5;
-            --color-card: #ffffff;
-            --color-text-dark: #1a1a1a;
-            --color-text-muted: #4a4a4a;
-            --color-text-light: #78716c;
-            --color-border: #e7e5e4;
-            --color-teal: #0d7490;
-            --color-purple: #6b21a8;
-            --color-amber: #b45309;
-            --color-green: #15803d;
-            --color-yellow-bg: #fffbe6;
-            --color-yellow-border: #f5c518;
-            --color-yellow-text: #8a6d00;
-            --color-dark-header: #1a1a1a;
-            --color-gcash: #dbeafe;
-            --color-gcash-text: #1e40af;
-            --color-xborder: #dcfce7;
-            --color-xborder-text: #166534;
-            --color-dark-footer: #1f2937;
-            --color-accent: #fbbf24;
-            --color-chinese-bg: #fafaf9;
-            --color-chinese-border: #e7e5e4;
-            --color-chinese-text: #57534e;
-            --color-red-accent: #c41e3a;
+            --color-stablecoin: #0d7490;
+            --color-agentic: #6b21a8;
+            --color-regulatory: #b45309;
+            --color-sea: #15803d;
         }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: var(--color-bg);
-            color: var(--color-text-dark);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            background: #f5f5f5;
+            color: #1f2937;
             line-height: 1.6;
-            padding: 12px;
         }
-
         .container {
             max-width: 640px;
             margin: 0 auto;
+            background: white;
         }
-
-        .header {
-            background: var(--color-dark-header);
+        header {
+            background: #1a1a1a;
             color: white;
             padding: 20px;
-            border-radius: 0 0 8px 8px;
-            margin-bottom: 16px;
             text-align: center;
         }
-
-        .header h1 {
-            font-size: 20px;
-            font-weight: 700;
+        header h1 {
+            font-size: 18px;
+            font-weight: 600;
             margin-bottom: 4px;
         }
-
-        .header .meta {
-            font-size: 13px;
-            opacity: 0.9;
+        header .date {
+            font-size: 12px;
+            color: #ccc;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-
-        .tldr-card {
-            background: var(--color-yellow-bg);
-            border: 2px solid var(--color-yellow-border);
-            border-radius: 12px;
+        .tldr {
+            background: #fffbe6;
+            border-left: 4px solid #f5c518;
+            margin: 16px;
             padding: 16px;
-            margin-bottom: 16px;
+            border-radius: 4px;
         }
-
-        .tldr-card .header-text {
-            text-transform: uppercase;
-            font-size: 12px;
+        .tldr h2 {
+            font-size: 13px;
             font-weight: 700;
-            color: var(--color-yellow-text);
+            text-transform: uppercase;
             margin-bottom: 12px;
-            letter-spacing: 0.5px;
         }
-
-        .tldr-card ol {
-            list-style: none;
-            counter-reset: tldr-counter;
+        .tldr ol {
+            margin-left: 20px;
+            font-size: 14px;
+            line-height: 1.7;
         }
-
-        .tldr-card li {
-            counter-increment: tldr-counter;
-            font-size: 16px;
+        .tldr li {
             margin-bottom: 8px;
-            color: var(--color-text-dark);
-            line-height: 1.5;
         }
-
-        .tldr-card li::before {
-            content: counter(tldr-counter) ". ";
-            font-weight: 700;
+        .tldr strong {
+            font-weight: 600;
         }
-
-        .story-card {
-            background: var(--color-card);
-            border-radius: 12px;
-            overflow: hidden;
+        .stories {
+            padding: 0 16px 16px;
+        }
+        .story {
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
             margin-bottom: 16px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            overflow: hidden;
         }
-
-        .story-category {
-            padding: 8px 16px;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: white;
-            letter-spacing: 0.5px;
+        .story-tag {
+            height: 4px;
+            width: 100%;
         }
-
-        .story-category.stablecoin {
-            background: var(--color-teal);
-        }
-
-        .story-category.agentic {
-            background: var(--color-purple);
-        }
-
-        .story-category.regulatory {
-            background: var(--color-amber);
-        }
-
+        .story-tag.stablecoin { background: var(--color-stablecoin); }
+        .story-tag.agentic { background: var(--color-agentic); }
+        .story-tag.regulatory { background: var(--color-regulatory); }
+        .story-tag.sea { background: var(--color-sea); }
         .story-content {
             padding: 16px;
         }
-
-        .story-headline {
-            font-size: 17px;
-            font-weight: 700;
-            color: var(--color-text-dark);
-            margin-bottom: 8px;
+        .story h3 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 6px;
             line-height: 1.4;
         }
-
         .story-gist {
-            font-size: 15px;
-            color: var(--color-text-muted);
-            margin-bottom: 12px;
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 10px;
+            font-style: italic;
         }
-
-        .bd-angle {
-            background: #fff8eb;
-            border-left: 4px solid #f59e0b;
-            padding: 12px;
-            margin-bottom: 12px;
-            font-size: 14px;
-            line-height: 1.6;
+        .story-category {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 4px 8px;
+            background: #f3f4f6;
+            border-radius: 3px;
+            margin-bottom: 10px;
         }
-
-        .bd-angle strong {
-            color: #92400e;
+        .story-bd-angle {
+            font-size: 13px;
+            margin: 10px 0;
+            padding: 10px;
+            background: #fafaf9;
+            border-left: 3px solid #f5c518;
+        }
+        .story-bd-angle strong {
             font-weight: 600;
         }
-
-        .bd-pills {
+        .story-pills {
+            margin: 10px 0;
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
-            margin-bottom: 12px;
         }
-
         .pill {
             display: inline-block;
-            padding: 5px 11px;
-            border-radius: 14px;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 12px;
+            color: white;
+            background: #059669;
+        }
+        .story-chinese {
+            background: #fafaf9;
+            border-left: 3px solid #c41e3a;
+            padding: 10px;
+            margin: 10px 0;
             font-size: 13px;
-            font-weight: 500;
-            white-space: nowrap;
-        }
-
-        .pill.xborder {
-            background: var(--color-xborder);
-            color: var(--color-xborder-text);
-        }
-
-        .pill.gcash {
-            background: var(--color-gcash);
-            color: var(--color-gcash-text);
-        }
-
-        .chinese-section {
-            background: var(--color-chinese-bg);
-            border: 1px solid var(--color-chinese-border);
-            border-radius: 6px;
-            padding: 12px;
-            margin-bottom: 12px;
-            font-size: 13px;
-            color: var(--color-chinese-text);
             line-height: 1.6;
         }
-
-        .chinese-label {
-            text-transform: uppercase;
+        .story-chinese .label {
+            display: inline-block;
             font-size: 11px;
             font-weight: 700;
-            color: var(--color-red-accent);
-            margin-bottom: 8px;
-            letter-spacing: 0.5px;
-        }
-
-        .glossary {
-            background: #f5f5f4;
-            border-radius: 6px;
-            padding: 10px;
-            font-size: 12px;
-            color: var(--color-text-light);
-            margin-bottom: 12px;
-            line-height: 1.5;
-        }
-
-        .glossary-title {
-            font-weight: 600;
-            color: var(--color-text-muted);
-            margin-bottom: 6px;
-        }
-
-        .glossary-item {
-            margin-bottom: 6px;
-        }
-
-        .watch-section {
-            background: var(--color-dark-footer);
+            background: #c41e3a;
             color: white;
-            padding: 16px;
-            border-radius: 12px;
-            margin-top: 16px;
-        }
-
-        .watch-section h3 {
-            font-size: 14px;
-            text-transform: uppercase;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--color-accent);
-            letter-spacing: 0.5px;
-        }
-
-        .watch-item {
-            font-size: 14px;
+            padding: 3px 8px;
             margin-bottom: 8px;
-            line-height: 1.5;
         }
-
-        .watch-item::before {
-            content: "→ ";
-            color: var(--color-accent);
-            font-weight: 700;
-            margin-right: 6px;
-        }
-
-        .footer {
-            text-align: center;
+        .story-chinese .insight {
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid #e5e7eb;
             font-size: 12px;
-            color: var(--color-text-light);
-            margin-top: 24px;
-            padding: 16px 0;
-            border-top: 1px solid var(--color-border);
         }
-
-        .footer a {
-            color: var(--color-teal);
+        .story-sources {
+            font-size: 11px;
+            color: #6b7280;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #e5e7eb;
+        }
+        .story-sources a {
+            color: #0d7490;
             text-decoration: none;
         }
-
+        .watch {
+            background: #1f2937;
+            color: white;
+            padding: 16px;
+            margin-top: 20px;
+        }
+        .watch h2 {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .watch ul {
+            margin-left: 20px;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+        .watch li {
+            margin-bottom: 10px;
+        }
+        .watch-label {
+            display: inline-block;
+            font-size: 10px;
+            background: rgba(255,255,255,0.2);
+            padding: 2px 6px;
+            border-radius: 2px;
+            margin-right: 6px;
+        }
+        footer {
+            background: #1a1a1a;
+            color: #999;
+            padding: 12px;
+            text-align: center;
+            font-size: 11px;
+        }
         @media (max-width: 480px) {
-            body { padding: 8px; }
-            .container { max-width: 100%; }
-            .header { padding: 16px; }
-            .header h1 { font-size: 18px; }
-            .header .meta { font-size: 12px; }
-            .tldr-card li { font-size: 15px; }
-            .story-headline { font-size: 16px; }
-            .bd-pills { gap: 4px; }
-            .pill { padding: 4px 9px; font-size: 12px; }
+            header h1 { font-size: 16px; }
+            .story h3 { font-size: 14px; }
+            .tldr { margin: 12px; }
+            .stories { padding: 0 12px 12px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>📊 PAYMENTS DAILY BRIEF</h1>
-            <div class="meta">Monday, May 5, 2026 SGT • Last 24 Hours</div>
-        </div>
+        <header>
+            <h1>Payments Intelligence Brief</h1>
+            <div class="date">May 5, 2026</div>
+        </header>
 
-        <div class="tldr-card">
-            <div class="header-text">⚡ 30-Second TL;DR</div>
+        <div class="tldr">
+            <h2>🎯 Top Takeaways</h2>
             <ol>
-                <li><strong>Stablecoin regulation cleared major U.S. hurdle</strong> → CLARITY Act compromise removes yield ambiguity, enabling institutional stablecoin rails globally within 6 months.</li>
-                <li><strong>Meta launches USDC creator payouts in PH</strong> → 160-country rollout planned via Stripe/Circle; signals institutional preference for regulated stablecoins.</li>
-                <li><strong>Agentic payment protocols go live</strong> → Google (AP2), Coinbase (x402), Stripe (MPP) launching autonomous payment infrastructure.</li>
+                <li><strong>CLARITY Act clears:</strong> U.S. stablecoin regulatory path opens enterprise adoption, shifts narrative from "crypto" to "payment infrastructure."</li>
+                <li><strong>Agent Pay ships:</strong> Mastercard live in AU + LAC; x402 protocol standardizes AI-to-AI payments — agentic stack infrastructure moves from concept to market.</li>
+                <li><strong>MAS raises bar:</strong> S$1M capital requirement + cooling periods reshape stablecoin issuance in SG; impacts fintech partnerships and product roadmaps.</li>
             </ol>
         </div>
 
-        <div class="story-card">
-            <div class="story-category stablecoin">STABLECOIN • Story #1</div>
-            <div class="story-content">
-                <div class="story-headline">▶ CLARITY Act Compromise Unblocks Stablecoin Regulation</div>
-                <div class="story-gist">Senate Banking Committee breaks deadlock over stablecoin yield restrictions; bill advances with carve-out allowing usage-tied rewards.</div>
-                <div class="bd-angle"><strong>💡 BD Angle</strong><br>This is the regulatory green light institutional finance has been waiting for. Reframes stablecoins as <em>transactional infrastructure</em>, not savings products. Within 6 months, expect banks to move from "stablecoins are too risky" to "can we on-ramp USDC?" Your institutional fintech prospects are running parallel RFP/regulatory processes now.</div>
-                <div class="bd-pills">
-                    <span class="pill xborder">🎯 Cross-border SEA</span>
-                    <span class="pill xborder">🎯 Institutional Adopt</span>
+        <div class="stories">
+            <div class="story">
+                <div class="story-tag stablecoin"></div>
+                <div class="story-content">
+                    <h3>U.S. Senate Passes CLARITY Act: Stablecoins Reframed as Payments Tools</h3>
+                    <div class="story-gist">Lawmakers compromise positions stablecoins as transactional instruments, not yield-bearing assets.</div>
+                    <div class="story-category">Stablecoin</div>
+                    <div class="story-bd-angle"><strong>💡 BD Angle:</strong> Regulatory clarity on stablecoins as <em>payment infrastructure</em> removes barriers for enterprise/FI adoption in the US. Shifts pitch from "crypto alternative" to "rails upgrade"—opens doors with risk-averse corporates and banking partners evaluating stablecoin settlement.</div>
+                    <div class="story-pills"><span class="pill">🎯 Regulatory Clarity</span></div>
+                    <div class="story-chinese">
+                        <div class="label">🇨🇳 中文速读</div>
+                        <div class="content">美国参议院通过 CLARITY Act，将稳定币重新定位为支付工具而非储蓄产品。这一监管明确化消除了企业和金融机构对稳定币的合规疑虑。</div>
+                        <div class="insight"><strong>💡 商业洞察：</strong>美国市场监管清晰化将加速稳定币在企业清结算中的采用，为你与风险厌恶的金融机构的销售对话打开大门。</div>
+                    </div>
+                    <div class="story-sources">Source: <a href="https://www.coindesk.com/policy/2026/05/01/clarity-act-text-lets-crypto-firms-offer-stablecoin-rewards-while-shielding-bank-yield">CoinDesk</a>, <a href="https://www.pymnts.com/cryptocurrency/2026/lawmakers-recast-stablecoins-payments-tools-clarity-act-compromise/">PYMNTS</a></div>
                 </div>
-                <div class="chinese-section">
-                    <div class="chinese-label">🇨🇳 中文速读</div>
-                    美国参议院打破僵局，通过《CLARITY法案》折中方案。这是机构金融一直在等待的监管绿灯，将稳定币从"储值工具"重新定位为"交易基础设施"，大幅降低合规风险。
-                    <div style="margin-top: 8px; font-weight: 500;">💡 商业洞察</div>
-                    你的BD谈话从"为什么用稳定币"转向"用哪条稳定币链"——这是销售信号的质变。特别在SEA跨境汇款和B2B结算中，这个突破解除了主要合规困顿。
+            </div>
+
+            <div class="story">
+                <div class="story-tag stablecoin"></div>
+                <div class="story-content">
+                    <h3>Meta Rolls Out Stablecoin Creator Payouts, Testing Philippines Market</h3>
+                    <div class="story-gist">Meta expanding creator earnings in USDC on Solana/Polygon; Philippines is primary pilot via Stripe.</div>
+                    <div class="story-category">Stablecoin × SEA</div>
+                    <div class="story-bd-angle"><strong>💡 BD Angle:</strong> Super-app (Meta) + stablecoin + super-platform (Stripe) converging in PH market validates P2P/creator payout use case at scale. Opens BD conversations: "How do we capture creator economy flows moving to stablecoins?"</div>
+                    <div class="story-pills"><span class="pill">🎯 Philippines</span></div>
+                    <div class="story-chinese">
+                        <div class="label">🇨🇳 中文速读</div>
+                        <div class="content">Meta 通过 Stripe 在菲律宾试点 USDC 创作者收益，用户可在 Solana/Polygon 上接收 USDC 支付。此举验证了稳定币在跨境创作者支付中的可行性。</div>
+                        <div class="insight"><strong>💡 商业洞察：</strong>大型平台落地稳定币支付给你的销售机会：与东南亚创意经济、中小商户和平台方讨论稳定币出金方案。</div>
+                    </div>
+                    <div class="story-sources">Source: <a href="https://www.coindesk.com/business/2026/04/29/tech-giant-meta-starts-paying-some-creators-in-stablecoin-with-stripe-s-support">CoinDesk</a>, <a href="https://stripe.com/blog/everything-we-announced-at-sessions-2026">Stripe</a></div>
+                </div>
+            </div>
+
+            <div class="story">
+                <div class="story-tag agentic"></div>
+                <div class="story-content">
+                    <h3>x402 Protocol Launches: Open Standard for Autonomous AI Agent Payments</h3>
+                    <div class="story-gist">Coinbase-backed protocol enables agent-to-agent payments via stablecoins in frictionless flow.</div>
+                    <div class="story-category">Agentic AI</div>
+                    <div class="story-bd-angle"><strong>💡 BD Angle:</strong> Infrastructure standardization for agent payments sets table-stakes interop layer. x402 compatibility becomes a feature table requirement for any payment stack. Opens conversation: "How do you plan to support agent settlement?" Differentiates forward-thinking platforms from laggards.</div>
+                    <div class="story-pills"><span class="pill">🎯 Infrastructure</span></div>
+                    <div class="story-chinese">
+                        <div class="label">🇨🇳 中文速读</div>
+                        <div class="content">x402 协议上线，允许 AI 智能体通过开放标准用稳定币进行支付，在 API 访问和数字服务支付流程中实现原子级结算。该协议由 Coinbase 支持。</div>
+                        <div class="insight"><strong>💡 商业洞察：</strong>支持 x402 成为你与面向 AI 时代架构的支付服务商竞争的差异化点，也是与企业讨论 AI 供应链自动化的开场白。</div>
+                    </div>
+                    <div class="story-sources">Source: <a href="https://www.pymnts.com/artificial-intelligence-2/2026/agentic-ai-gets-its-own-payment-protocol/">PYMNTS</a>, <a href="https://www.imf.org/en/publications/imf-notes/issues/2026/04/22/how-agentic-ai-will-reshape-payments-575560">IMF</a></div>
+                </div>
+            </div>
+
+            <div class="story">
+                <div class="story-tag agentic"></div>
+                <div class="story-content">
+                    <h3>Mastercard Agent Pay Goes Live: Australia + Latin America Expand</h3>
+                    <div class="story-gist">CBA issued first authenticated agentic transaction (cinema tickets); rollout across LAC validates demand.</div>
+                    <div class="story-category">Agentic AI</div>
+                    <div class="story-bd-angle"><strong>💡 BD Angle:</strong> Largest card network shipping agent-native payments with biometric + token-based auth validates market demand. Mastercard's playbook (Agentic Tokens + Payment Passkeys) becomes competitive baseline. BD question: "What's your agent authentication strategy vs. Mastercard?"</div>
+                    <div class="story-pills"><span class="pill">🎯 Network Infrastructure</span></div>
+                    <div class="story-chinese">
+                        <div class="label">🇨🇳 中文速读</div>
+                        <div class="content">Mastercard Agent Pay 在澳大利亚和拉丁美洲商用，澳洲联邦银行（CBA）与 Event Cinemas 完成首笔认证智能体支付交易。方案基于智能体令牌和生物识别认证。</div>
+                        <div class="insight"><strong>💡 商业洞察：</strong>最大卡网络验证了智能体支付的市场需求，你的智能体认证方案若与 Mastercard 兼容或有差异化优势，就成为与金融机构的销售杠杆。</div>
+                    </div>
+                    <div class="story-sources">Source: <a href="https://www.mastercard.com/news/ap/en/newsroom/press-releases/en/2026/mastercard-accelerates-ai-powered-commerce-with-australia-s-first-authenticated-agentic-transactions-using-agent-pay/">Mastercard</a></div>
+                </div>
+            </div>
+
+            <div class="story">
+                <div class="story-tag regulatory"></div>
+                <div class="story-content">
+                    <h3>MAS Proposes S$1M Capital for Single-Currency Stablecoins, Tightens Guardrails</h3>
+                    <div class="story-gist">MAS consultation (due May 18) sets stablecoin capital lock, 12-hour cooling periods, transaction limits.</div>
+                    <div class="story-category">SG Regulatory</div>
+                    <div class="story-bd-angle"><strong>💡 BD Angle:</strong> Singapore raising the bar on stablecoin issuance (capital requirement + friction measures) reshapes product roadmaps for any fintech considering stablecoin launch or partnership. Opens conversation: "Are you planning stablecoin rollout in SG? Here's what compliance looks like."</div>
+                    <div class="story-pills"><span class="pill">🎯 Singapore</span></div>
+                    <div class="story-chinese">
+                        <div class="label">🇨🇳 中文速读</div>
+                        <div class="content">MAS 提议单一货币稳定币需 S$100 万资本金，同时强化消费者保护（12 小时冷静期、交易限额、KYC 强化）。咨询反馈截止 5 月 18 日。</div>
+                        <div class="insight"><strong>💡 商业洞察：</strong>MAS 新规直接影响新加坡及泛 SEA 的稳定币产品规划。这是你与本地金融科技和金融机构讨论稳定币产品成本和合规路径的关键卖点。</div>
+                    </div>
+                    <div class="story-sources">Source: <a href="https://www.mas.gov.sg/news">MAS Newsroom</a>, <a href="https://www.twobirds.com/en/insights/2026/singapore/gamechanger-for-how-banks-treat-cryptoassets-issued">Bird & Bird</a></div>
                 </div>
             </div>
         </div>
 
-        <div class="story-card">
-            <div class="story-category stablecoin">STABLECOIN • Story #2</div>
-            <div class="story-content">
-                <div class="story-headline">▶ Meta Launches USDC Creator Payouts, 160 Countries by EOY</div>
-                <div class="story-gist">Meta enables creator stablecoin payouts on Solana/Polygon via Stripe + Circle; pilot live in Philippines, global rollout planned.</div>
-                <div class="bd-angle"><strong>💡 BD Angle</strong><br>This is <em>scale</em>. Meta signals institutional momentum around USDC as the default for regulated payments. When Meta, Visa, Stripe, and BlackRock all standardize on USDC, that's infrastructure consolidation. For SEA, the Philippines pilot means GCash-to-USDC interop is now live narrative you can use with prospects. Opens a remittance angle: creators earn in-country, settle internationally in USDC, bypassing traditional corridors entirely.</div>
-                <div class="bd-pills">
-                    <span class="pill gcash">🎯 GCash</span>
-                    <span class="pill xborder">🎯 Cross-border SEA</span>
-                </div>
-                <div class="chinese-section">
-                    <div class="chinese-label">🇨🇳 中文速读</div>
-                    Meta通过Stripe和Circle启动USDC创作者付款，已在菲律宾试点，计划2026年底扩至160多国。标志USDC作为主流支付基础设施的机构级确认，绕过传统跨境汇款渠道。
-                    <div style="margin-top: 8px; font-weight: 500;">💡 商业洞察</div>
-                    这是Meta、Visa、Stripe等围绕USDC的标准化。CFO们看到Meta背书，就会认真考虑稳定币基础设施。GCash-USDC互联已成现实，为跨境支付平台创造新的竞争论述。
-                </div>
-            </div>
+        <div class="watch">
+            <h2>📌 Watch Today</h2>
+            <ul>
+                <li><span class="watch-label">DEADLINE</span> MAS stablecoin consultation closes <strong>May 18</strong>—fintech last call to comment on S$1M capital rule.</li>
+                <li><span class="watch-label">MONITORING</span> Circle's Hong Kong payout integration; any SEA stablecoin partnership announcements.</li>
+                <li><span class="watch-label">MONITORING</span> Stripe Sessions fallout: merchant adoption of stablecoin payouts in emerging markets (Philippines, Brazil).</li>
+            </ul>
         </div>
 
-        <div class="story-card">
-            <div class="story-category agentic">AGENTIC AI • Story #3</div>
-            <div class="story-content">
-                <div class="story-headline">▶ Agentic Payment Protocols Emerge: x402, AP2, MPP Live</div>
-                <div class="story-gist">Google (AP2), Coinbase (x402), Stripe/Tempo (MPP) launch autonomous payment protocols; three competing standards in production.</div>
-                <div class="bd-angle"><strong>💡 BD Angle</strong><br>This is the 2027 infrastructure bet. Agentic payments mean a merchant's AI can autonomously execute payments without human approval. For SEA fintech: <em>Threat</em> — no agent-native APIs by 2026 = legacy by 2027. <em>Opportunity</em> — first mover wins the B2B SaaS/autonomous finance segment. Your pitch shifts from "faster payments" to "your AI makes smarter payment decisions."</div>
-                <div class="chinese-section">
-                    <div class="chinese-label">🇨🇳 中文速读</div>
-                    谷歌、Coinbase、Stripe推出三项竞争的代理支付协议标准，使AI能自主执行支付。这是2027年支付基础设施的定局时刻，将重塑B2B支付格局。
-                    <div style="margin-top: 8px; font-weight: 500;">💡 商业洞察</div>
-                    对SEA fintech而言既是威胁也是机遇。不在2026年建立代理友好的API，2027年就会沦为过时基础设施。首个提供一键代理集成的平台将垄断B2B SaaS/自动化财务市场。
-                </div>
-            </div>
-        </div>
-
-        <div class="story-card">
-            <div class="story-category regulatory">SG REGULATORY • Story #4</div>
-            <div class="story-content">
-                <div class="story-headline">▶ MAS AI Risk Management Toolkit Released</div>
-                <div class="story-gist">Monetary Authority of Singapore publishes formal AI Risk Governance Framework for financial services sector.</div>
-                <div class="bd-angle"><strong>💡 BD Angle</strong><br>MAS just handed you a regulatory <em>moat</em>. Any fintech built in Singapore with MAS-compliant AI governance is now compliant across major global jurisdictions faster. When pitching agentic payments to HK, BKK, or MNL institutional buyers, "MAS-approved AI governance" is a closing argument. Being MAS-compliant = your competitive advantage within 24 months.</div>
-                <div class="chinese-section">
-                    <div class="chinese-label">🇨🇳 中文速读</div>
-                    新加坡金融管理局（MAS）发布《AI风险管理工具包》，明确AI在支付、风控、决策中的治理标准，成为亚太地区标杆。
-                    <div style="margin-top: 8px; font-weight: 500;">💡 商业洞察</div>
-                    这给新加坡金融科技一个"监管护城河"。任何按MAS框架构建的AI支付系统，自动符合香港、泰国、菲律宾等地监管预期。这不仅是品牌优势，而是实际的销售加速剂。
-                </div>
-            </div>
-        </div>
-
-        <div class="watch-section">
-            <h3>📍 Watch Today</h3>
-            <div class="watch-item"><strong>Brazil Stablecoin Ban</strong> — Brazil's central bank banned stablecoins in cross-border settlement (May 2). Counter-signal to global adoption. Monitor whether other emerging markets follow; impacts SEA corridor positioning.</div>
-            <div class="watch-item"><strong>Airwallex Malaysia Expansion</strong> — Airwallex planning 2x Malaysia hiring in 2026, processed RM2B remittance volume in 2025. Watch quarterly updates on SEA expansion; signals regional consolidation pressure.</div>
-        </div>
-
-        <div class="footer">
-            <div style="margin-bottom: 12px;">✅ Brief generated: 4 stories, ~2,100 words | ✅ Coverage: 50% stablecoin rails + adoption, 30% agentic AI, 20% SEA regulatory</div>
-            <p>📊 <strong>Sources:</strong> <a href="https://www.pymnts.com/cryptocurrency/2026/lawmakers-recast-stablecoins-payments-tools-clarity-act-compromise/">PYMNTS</a> · <a href="https://www.coindesk.com/policy/2026/05/01/clarity-act-text-lets-crypto-firms-offer-stablecoin-rewards-while-shielding-bank-yield/">CoinDesk</a> · <a href="https://www.imf.org/en/publications/imf-notes/issues/2026/04/22/how-agentic-ai-will-reshape-payments-575560/">IMF</a> · <a href="https://aws.amazon.com/blogs/industries/agentic-payments-the-next-evolution-in-the-payments-value-chain/">AWS</a> · <a href="https://www.mas.gov.sg/">MAS</a></p>
-        </div>
+        <footer>Payments Intelligence Brief for Lea Wang | Stablecoin Rails (50%) · Agentic AI (30%) · SEA Pulse (20%) | Generated 2026-05-05</footer>
     </div>
 </body>
 </html>
