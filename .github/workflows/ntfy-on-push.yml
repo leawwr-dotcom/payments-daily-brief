@@ -1,0 +1,30 @@
+name: Notify ntfy on brief push
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - '*.html'
+      - '.github/workflows/ntfy-on-push.yml'
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get current date (SGT)
+        id: date
+        run: |
+          echo "today=$(TZ=Asia/Singapore date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+          echo "weekday=$(TZ=Asia/Singapore date +'%A')" >> $GITHUB_OUTPUT
+
+      - name: Push notification to ntfy.sh
+        run: |
+          curl -s \
+            -H "Title: 📊 Payments Brief — ${{ steps.date.outputs.today }}" \
+            -H "Tags: chart_with_upwards_trend,bell" \
+            -H "Priority: default" \
+            -H "Click: https://leawwr-dotcom.github.io/payments-daily-brief/" \
+            -d "今日 ${{ steps.date.outputs.weekday }} brief 已发布。点开查看 TL;DR + 5 stories." \
+            https://ntfy.sh/lea-payments-brief-9k3m7vqxz2
+          echo "✅ ntfy push fired for ${{ steps.date.outputs.today }}"
